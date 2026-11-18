@@ -18,6 +18,29 @@
     <link rel="stylesheet" href="assets/css/typefaces.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="assets/css/typefaces.css"></noscript>
     <link rel="stylesheet" href="assets/css/nexa.css">
+    <link rel="stylesheet" href="assets/css/nexa-wordmark.css">
+    <script>
+        (function () {
+            var LIGHT = '#f3f9f9', DARK = '#101b19';
+            function theme() {
+                var t = document.documentElement.dataset.theme;
+                if (t) return t === 'dark' ? 'dark' : 'light';
+                return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            function apply() {
+                var m = document.querySelector('meta[name="theme-color"]');
+                if (!m) {
+                    m = document.createElement('meta');
+                    m.name = 'theme-color';
+                    document.head.appendChild(m);
+                }
+                m.content = theme() === 'dark' ? DARK : LIGHT;
+            }
+            apply();
+            new MutationObserver(apply).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+            if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change', apply);
+        })();
+    </script>
 </head>
 
 <body>
