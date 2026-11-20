@@ -6467,7 +6467,21 @@
 
         .fx-time b {
             font-size: clamp(46px, 9vmin, 76px);
-            font-variant-numeric: tabular-nums;}.fx-ctl {
+            font-variant-numeric: tabular-nums;}
+        #fxT, #fxT * {
+            font-family: 'Lemonada', Manrope, Alexandria, system-ui, sans-serif;
+            background-image: linear-gradient(90deg, #ff3d7f, #ffb020, #3da9fc, #ff3d7f);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: nxTextFlow 6s linear infinite;
+        }
+        @keyframes nxTextFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }.fx-ctl {
             display: flex;
             align-items: center;}.fx-set {
             display: flex;
