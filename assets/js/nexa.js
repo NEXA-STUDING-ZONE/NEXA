@@ -3163,9 +3163,9 @@
                         l: [15, 20, 30, 45]
                     };
                 const LIM = {
-                        f: [1, 180],
+                        f: [1, 360],
                         s: [1, 10],
-                        l: [11, 180]
+                        l: [11, 360]
                     },
                     clampM = (m, v) => Math.max(LIM[m][0], Math.min(LIM[m][1], Math.round(+v) || D[m]));
                 ['f', 's', 'l'].forEach(m => {
@@ -3499,7 +3499,7 @@
                 RING.setAttribute('role', 'slider');
                 RING.setAttribute('tabindex', '0');
                 RING.setAttribute('aria-valuemin', '1');
-                RING.setAttribute('aria-valuemax', '180');
+                RING.setAttribute('aria-valuemax', '360');
                 RING.setAttribute('aria-orientation', 'circular');
                 RING.setAttribute('aria-label', 'Timer minutes');
 
