@@ -1,4 +1,4 @@
-const BUILD = '1794566028';
+const BUILD = '1794566500';
 const CODE = 'nexa-code-' + BUILD;
 const MEDIA = 'nexa-media';
 const ALL_FILES = [
@@ -10,6 +10,7 @@ const ALL_FILES = [
 "./assets/audio/deep-space.mp3",
 "./assets/css/board.css",
 "./assets/css/nexa.css",
+"./assets/css/timer-mini.css",
 "./assets/img/backdrop.svg",
 "./assets/img/nexa-favicon.ico",
 "./assets/img/scene-aurora.webp",
@@ -30,6 +31,7 @@ const ALL_FILES = [
 "./assets/js/board-stickers.js",
 "./assets/js/board-engine.js",
 "./assets/js/nexa.js",
+"./assets/js/timer-mini.js",
 "./assets/js/pdf-core.js",
 "./assets/js/push-settings.js",
 "./assets/js/color-picker.js",
