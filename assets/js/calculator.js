@@ -627,6 +627,10 @@
         buildSb();loadLcd();applyLcd();draw();fitCalc();if(document.fonts){document.fonts.ready.then(fitCalc);document.fonts.load('700 20px "Lemonada"').then(splashFit,splashFit)}splashFit();
 
         const calcEl=$("#calc");
+        const kpEl=$("#kp"),wf=document.createElement("div"),wn=document.createElement("div");
+        wf.className="kpf";wn.className="kpn";
+        Array.from(kpEl.children).forEach(r=>(r.classList.contains("c6")?wf:wn).appendChild(r));
+        kpEl.append(wf,wn);
         if(window.ResizeObserver)new ResizeObserver(()=>fitCalc()).observe($("#cxs"));
         api={fit:fitCalc,setLand:v=>{calcEl.classList.toggle("land",!!v);placeLc();fitCalc()}};
 
