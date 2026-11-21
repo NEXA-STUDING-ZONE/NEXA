@@ -9504,7 +9504,10 @@
                                 v: gv / gw,
                                 s
                             } : null
-                        }
+                        };
+                        const ac = cv.__prof.accent;
+                        st.style.setProperty('--fx-digit', 'rgb(' + ac.map(v => Math.round(v * .22 + 255 * .78)).join(',') + ')');
+                        st.style.setProperty('--fx-glow', 'rgba(' + ac.join(',') + ',.55)')
                     } catch (e) {}
                 };
                 im.src = u
@@ -9514,6 +9517,8 @@
                 if (isC(m) && !urlOf(m)) m = 'cine';
                 mode = m;
                 const u = urlOf(m);
+                st.style.removeProperty('--fx-digit');
+                st.style.removeProperty('--fx-glow');
                 st.dataset.bg = isC(m) ? 'custom' : m;
                 cv.dataset.mode = m === 'cine' ? 'cine' : 'img';
                 cv.dataset.scene = isC(m) ? 'custom' : m;
