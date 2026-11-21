@@ -5,6 +5,8 @@
     if (!mount || !tpl || !host) return;
     var LAND_KEY = 'nexa.calc.land.v1';
     var started = false;
+    var fs = false;
+    var section = document.getElementById('v-calculator');
     var api = null;
     var land = false;
     try { land = localStorage.getItem(LAND_KEY) === '1'; } catch (e) {}
@@ -634,82 +636,46 @@
         return location.hash.indexOf('#/calculator') === 0;
     }
 
-    function fsElement() {
-        return document.fullscreenElement || document.webkitFullscreenElement || null;
-    }
-
-    function isFs() {
-        return fsElement() === host || host.classList.contains('calc-pfs');
+    function label(btn, text, map) {
+        if (!btn) return;
+        var ar = document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl';
+        var v = ar ? map[text] : text;
+        btn.dataset.enTitle = text;
+        btn.dataset.enAria = text;
+        btn.title = v;
+        btn.setAttribute('aria-label', v);
     }
 
     function paint() {
-        var fs = isFs();
         host.classList.toggle('is-fs', fs);
         host.classList.toggle('is-land', land);
+        if (section) section.classList.toggle('calc-expanded', fs);
         if (btnFs) {
             btnFs.setAttribute('aria-pressed', fs ? 'true' : 'false');
-            var t = fs ? 'Exit full screen' : 'Full screen';
-            btnFs.dataset.enTitle = t;
-            btnFs.dataset.enAria = t;
-            var ar = document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl';
-            var map = { 'Exit full screen': 'الخروج من ملء الشاشة', 'Full screen': 'ملء الشاشة' };
-            var v = ar ? map[t] : t;
-            btnFs.title = v;
-            btnFs.setAttribute('aria-label', v);
+            label(btnFs, fs ? 'Exit full screen' : 'Full screen', { 'Exit full screen': 'الخروج من ملء الشاشة', 'Full screen': 'ملء الشاشة' });
         }
         if (btnLand) {
             btnLand.setAttribute('aria-pressed', land ? 'true' : 'false');
-            var lt = land ? 'Portrait view' : 'Landscape view';
-            btnLand.dataset.enTitle = lt;
-            btnLand.dataset.enAria = lt;
-            var ar2 = document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl';
-            var map2 = { 'Portrait view': 'عرض رأسي', 'Landscape view': 'عرض أفقي' };
-            var v2 = ar2 ? map2[lt] : lt;
-            btnLand.title = v2;
-            btnLand.setAttribute('aria-label', v2);
+            label(btnLand, land ? 'Portrait view' : 'Landscape view', { 'Portrait view': 'عرض رأسي', 'Landscape view': 'عرض أفقي' });
         }
-        if (api) requestAnimationFrame(function () { api.fit(); });
-    }
-
-    function enterFs() {
-        var fn = host.requestFullscreen || host.webkitRequestFullscreen;
-        if (fn) {
-            var p = fn.call(host);
-            if (p && p.catch) p.catch(function () { host.classList.add('calc-pfs'); document.body.classList.add('calc-noscroll'); paint(); });
-            try {
-                if (land && screen.orientation && screen.orientation.lock) {
-                    var q = screen.orientation.lock('landscape');
-                    if (q && q.catch) q.catch(function () {});
-                }
-            } catch (e) {}
-        } else {
-            host.classList.add('calc-pfs');
-            document.body.classList.add('calc-noscroll');
-            paint();
+        if (api) {
+            requestAnimationFrame(function () { api.fit(); });
+            setTimeout(function () { api.fit(); }, 120);
         }
     }
 
-    function exitFs() {
-        if (host.classList.contains('calc-pfs')) {
-            host.classList.remove('calc-pfs');
-            document.body.classList.remove('calc-noscroll');
-        }
-        if (fsElement()) {
-            var fn = document.exitFullscreen || document.webkitExitFullscreen;
-            if (fn) {
-                var p = fn.call(document);
-                if (p && p.catch) p.catch(function () {});
-            }
-        }
-        try {
-            if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
-        } catch (e) {}
+    function setFs(on) {
+        fs = !!on;
         paint();
+        if (fs && section) {
+            var m = document.querySelector('.main');
+            if (m) m.scrollTop = 0;
+        }
     }
 
     function sync() {
         if (!active()) {
-            if (isFs()) exitFs();
+            if (fs) setFs(false);
             return;
         }
         if (!started) start();
@@ -717,22 +683,19 @@
         paint();
     }
 
-    if (btnFs) btnFs.addEventListener('click', function () { if (isFs()) exitFs(); else enterFs(); });
+    if (btnFs) btnFs.addEventListener('click', function () { setFs(!fs); });
     if (btnLand) btnLand.addEventListener('click', function () {
         land = !land;
         try { localStorage.setItem(LAND_KEY, land ? '1' : '0'); } catch (e) {}
         if (api) api.setLand(land);
         paint();
     });
-    document.addEventListener('fullscreenchange', function () {
-        if (!fsElement()) {
-            try {
-                if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
-            } catch (e) {}
-        }
-        paint();
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape' || !fs || !active()) return;
+        var tg = (e.composedPath && e.composedPath()[0]) || e.target;
+        if (tg && /^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName || '')) return;
+        setFs(false);
     });
-    document.addEventListener('webkitfullscreenchange', paint);
     window.addEventListener('hashchange', sync);
     window.addEventListener('nexa:lang', paint);
     sync();
