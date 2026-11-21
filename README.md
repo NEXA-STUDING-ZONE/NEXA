@@ -1,6 +1,6 @@
 <div align="center">
 
-# NEXA
+# NEXAZ
 
 **Think Beyond**
 
@@ -12,9 +12,9 @@
 
 # 🇪🇬 العربية
 
-## ما هو NEXA؟
+## ما هو NEXAZ؟
 
-NEXA هو مساحتك الشخصية للدراسة: مكان هادئ تحتفظ فيه بكتبك، وتخطط مهامك وأسبوعك، وتركّز بمؤقت وأصوات مريحة، وتتابع تقدمك. كل شيء في موقع واحد، ويعمل بالعربية والإنجليزية. بياناتك تُحفظ على جهازك فقط ولا تُرفع إلى أي مكان.
+NEXAZ هو مساحتك الشخصية للدراسة: مكان هادئ تحتفظ فيه بكتبك، وتخطط مهامك وأسبوعك، وتركّز بمؤقت وأصوات مريحة، وتتابع تقدمك. كل شيء في موقع واحد، ويعمل بالعربية والإنجليزية. بياناتك تُحفظ على جهازك فقط ولا تُرفع إلى أي مكان.
 
 ## أقسام الموقع
 
@@ -54,9 +54,9 @@ NEXA هو مساحتك الشخصية للدراسة: مكان هادئ تحتف
 
 # 🇬🇧 English
 
-## What is NEXA?
+## What is NEXAZ?
 
-NEXA is your personal study workspace: a calm place to keep your books, plan your tasks and week, focus with a timer and soothing sounds, and track your progress. Everything lives in one site, in Arabic and English. Your data is saved on your own device only and is never uploaded anywhere.
+NEXAZ is your personal study workspace: a calm place to keep your books, plan your tasks and week, focus with a timer and soothing sounds, and track your progress. Everything lives in one site, in Arabic and English. Your data is saved on your own device only and is never uploaded anywhere.
 
 ## Sections
 

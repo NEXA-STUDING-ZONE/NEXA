@@ -29,7 +29,7 @@ async function showDueReminders() {
     if (now >= it.ts && now < it.ts + (it.win || 0)) {
       const missed = it.msg2 && now - it.ts > 30 * 60000;
       try {
-        await self.registration.showNotification('NEXA', {
+        await self.registration.showNotification('NEXAZ', {
           body: missed ? it.msg2 : it.msg,
           tag: it.tag,
           icon: NOTIF_ICON,
@@ -65,8 +65,8 @@ self.addEventListener('push', event => {
     }
     const wins = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
     if (wins.some(c => c.visibilityState === 'visible')) return;
-    await self.registration.showNotification('NEXA', {
-      body: d.body || 'NEXA',
+    await self.registration.showNotification('NEXAZ', {
+      body: d.body || 'NEXAZ',
       tag: d.tag || 'nexa-push',
       icon: NOTIF_ICON,
       badge: NOTIF_BADGE,
