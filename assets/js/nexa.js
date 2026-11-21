@@ -155,9 +155,9 @@
                 'Add 3 books': 'أضف 3 كتب',
                 'Soon': 'قريبًا',
                 'About': 'حول',
-                'About NEXA': 'عن نيكسا',
+                'About NEXAZ': 'عن نيكساز',
                 'Think Beyond': 'فكّر أبعد',
-                'NEXA is your personal study workspace: keep your books, tasks and notes, plan your week and stay focused, all in one calm place.': 'نيكسا هو مساحتك الدراسية الشخصية: رتّب كتبك ومهامك وملاحظاتك، وخطّط لأسبوعك وحافظ على تركيزك في مكان واحد هادئ.',
+                'NEXAZ is your personal study workspace: keep your books, tasks and notes, plan your week and stay focused, all in one calm place.': 'نيكساز هو مساحتك الدراسية الشخصية: رتّب كتبك ومهامك وملاحظاتك، وخطّط لأسبوعك وحافظ على تركيزك في مكان واحد هادئ.',
                 'Upload your PDF books, read them on this device and write on the pages with a pen, highlighter, text, sticky notes and shapes.': 'ارفع كتبك بصيغة PDF واقرأها على هذا الجهاز، واكتب على صفحاتها بالقلم والتظليل والنصوص والملصقات والأشكال.',
                 'Add tasks by difficulty, easiest first, tick them off and watch your progress grow.': 'أضف مهامك حسب الصعوبة من الأسهل للأصعب، وأنجزها وشاهد تقدّمك ينمو.',
                 'Write and pin notes, format your text and keep every idea organised and easy to find.': 'دوّن ملاحظاتك وثبّتها ونسّق نصوصك وأبقِ كل فكرة منظّمة وسهلة الوصول.',
@@ -223,11 +223,11 @@
                 'Language': 'اللغة',
                 'Sound effects': 'المؤثرات الصوتية',
                 'Volume': 'مستوى الصوت',
-                'Big Dream. Learn More. — NEXA': 'حلم كبير. تعلّم أكثر. — نيكسا',
+                'Big Dream. Learn More. — NEXAZ': 'حلم كبير. تعلّم أكثر. — نيكساز',
                 'Your books and PDFs, always within reach.': 'كتبك وملفات PDF دائمًا في متناول يدك.',
                 'Capture ideas before they slip away.': 'دوّن أفكارك قبل أن تضيع.',
-                'The story behind NEXA.': 'القصة وراء نيكسا.',
-                'Make NEXA feel like yours.': 'اجعل نيكسا يشبهك.',
+                'The story behind NEXAZ.': 'القصة وراء نيكساز.',
+                'Make NEXAZ feel like yours.': 'اجعل نيكساز يشبهك.',
                 'YOUR PERSONAL WORKSPACE': 'مساحتك الشخصية',
                 'Hide': 'إخفاء',
                 'None': 'بدون',
@@ -2627,14 +2627,14 @@
                 }
                 if (reg && reg.showNotification) {
                     try {
-                        await reg.showNotification('NEXA', o);
+                        await reg.showNotification('NEXAZ', o);
                         return
                     } catch (x) {
                         console.warn('Service worker notification failed', x)
                     }
                 }
                 try {
-                    const nt = new Notification('NEXA', o);
+                    const nt = new Notification('NEXAZ', o);
                     nt.onclick = () => {
                         try {
                             window.focus()
@@ -2653,9 +2653,9 @@
                 const has = 'Notification' in window,
                     p = has ? Notification.permission : 'none',
                     ar = isAr();
-                $('#permTxt').textContent = !has ? (ar ? '🔔 ستظهر التذكيرات داخل نيكسا (أيقونة الجرس) أثناء فتح التطبيق.' : '🔔 Reminders appear inside NEXA (bell icon) while the app is open.') :
-                    p === 'granted' ? (pushUrl() ? (ar ? '🔔 الإشعارات مفعّلة — ستصلك تذكيرات مهامك حتى لو كان الموقع مغلقاً.' : '🔔 Notifications are on — reminders reach you even when the site is closed.') : (ar ? '🔔 الإشعارات مفعّلة. للتنبيه والتطبيق مغلق ثبّت نيكسا على الشاشة الرئيسية، وقد يتأخر التنبيه أحياناً حسب إعدادات الهاتف.' : '🔔 Notifications are on. To be reminded while the app is closed, install NEXA to your home screen; alerts may arrive late depending on your phone’s settings.')) :
-                    p === 'denied' ? (ar ? 'إشعارات المتصفح محظورة. ستظل التذكيرات تظهر داخل نيكسا (أيقونة الجرس).' : 'Browser notifications are blocked. Reminders will still appear inside NEXA (bell icon).') :
+                $('#permTxt').textContent = !has ? (ar ? '🔔 ستظهر التذكيرات داخل نيكساز (أيقونة الجرس) أثناء فتح التطبيق.' : '🔔 Reminders appear inside NEXAZ (bell icon) while the app is open.') :
+                    p === 'granted' ? (pushUrl() ? (ar ? '🔔 الإشعارات مفعّلة — ستصلك تذكيرات مهامك حتى لو كان الموقع مغلقاً.' : '🔔 Notifications are on — reminders reach you even when the site is closed.') : (ar ? '🔔 الإشعارات مفعّلة. للتنبيه والتطبيق مغلق ثبّت نيكساز على الشاشة الرئيسية، وقد يتأخر التنبيه أحياناً حسب إعدادات الهاتف.' : '🔔 Notifications are on. To be reminded while the app is closed, install NEXAZ to your home screen; alerts may arrive late depending on your phone’s settings.')) :
+                    p === 'denied' ? (ar ? 'إشعارات المتصفح محظورة. ستظل التذكيرات تظهر داخل نيكساز (أيقونة الجرس).' : 'Browser notifications are blocked. Reminders will still appear inside NEXAZ (bell icon).') :
                     (ar ? 'فعّل الإشعارات ليصلك تذكير في يوم كل مهمة مجدولة.' : 'Turn on notifications to get a reminder on the day of each scheduled task.');
                 $('#permBtn').hidden = !(has && p === 'default');
                 b.hidden = has && p === 'granted' ? false : false
@@ -3013,6 +3013,7 @@
                     library: '#/library',
                     notes: '#/notes',
                     smartboard: '#/smartboard',
+                    calculator: '#/calculator',
                     focus: '#/focus'
                 };
                 const EXTRA = {
@@ -3022,8 +3023,8 @@
                 const SUB = {
                     library: 'Your books and PDFs, always within reach.',
                     notes: 'Capture ideas before they slip away.',
-                    about: 'The story behind NEXA.',
-                    settings: 'Make NEXA feel like yours.'
+                    about: 'The story behind NEXAZ.',
+                    settings: 'Make NEXAZ feel like yours.'
                 };
                 const uniq = (html, id) => {
                     const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]);
@@ -3035,7 +3036,7 @@
                     if (o.indexOf('class="banner-art"') < 0) o = o.replace('<svg ', '<svg class="banner-art" ');
                     return o
                 };
-                for (const id of ['tasks', 'timetable', 'library', 'notes', 'smartboard', 'focus', 'about', 'settings']) {
+                for (const id of ['tasks', 'timetable', 'library', 'notes', 'smartboard', 'calculator', 'focus', 'about', 'settings']) {
                     const sec = document.getElementById('v-' + id);
                     if (!sec) continue;
                     let ban = sec.querySelector('.section-banner');
@@ -3077,6 +3078,9 @@
                 }
             })();
             Object.assign(AR, {
+                'Calculator': 'الآلة الحاسبة',
+                'Solve, Calculate, Check': 'احسب وحلّ وتحقق',
+                'A full scientific calculator for your study sessions.': 'آلة حاسبة علمية كاملة لحصصك الدراسية.',
                 'Smart Board': 'السبورة الذكية',
                 'Draw, Explain, Present': 'ارسم واشرح وقدّم',
                 'Draw, explain and present on a smart whiteboard. We’re putting the finishing touches on it.': 'ارسم واشرح وقدّم على سبورة ذكية. نضع اللمسات الأخيرة عليها.'
@@ -3297,7 +3301,7 @@
                     p.style.strokeDashoffset = C * (1 - r / tot);
                     $('#fxL').textContent = tr(fm === 'f' ? 'Focus' : fm === 's' ? 'Short break' : 'Long break') + (fm === 'f' ? ' · ' + tr('Session') + ' ' + (D.done % 4 + 1) : '');
                     $('#fxGo').textContent = run ? tr('Pause') : tr('Start');
-                    document.title = run ? mm + ':' + ss + ' · NEXA' : T0;
+                    document.title = run ? mm + ':' + ss + ' · NEXAZ' : T0;
                     document.querySelectorAll('#fxTabs button').forEach(b => b.classList.toggle('on', b.dataset.m === fm));
                     $('#fxPre').innerHTML = PRE[fm].map(v => `<button type="button" data-v="${v}" class="${v===D[fm]?'on':''}" ${act?'disabled':''}>${v}</button>`).join('');
                     const mi = $('#fxMin');
@@ -8796,7 +8800,7 @@
                         })),
                         link = document.createElement('a');
                     link.href = url;
-                    link.download = (file.name || 'NEXA-document.pdf').replace(/\.pdf$/i, '') + '-annotated.pdf';
+                    link.download = (file.name || 'NEXAZ-document.pdf').replace(/\.pdf$/i, '') + '-annotated.pdf';
                     link.click();
                     setTimeout(() => URL.revokeObjectURL(url), 4000);
                     note(L('Annotated PDF exported successfully.', 'تم تصدير الملف مع التعليقات.'))
@@ -8893,7 +8897,7 @@
             if (isArabic) {
                 root.setAttribute('dir', 'rtl');
                 kicker.textContent = isReturning ? 'مساحتك جاهزة' : 'بداية فصل جديد';
-                greeting.textContent = isReturning ? 'أهلًا بعودتك،' : 'أهلًا بك في NEXA،';
+                greeting.textContent = isReturning ? 'أهلًا بعودتك،' : 'أهلًا بك في NEXAZ،';
                 message.textContent = isReturning ? 'مساحتك في انتظارك. أكمل رحلتك وتقدّمك من حيث توقفت.' : 'مساحتك للتعلّم والاستكشاف والتفكير خارج الحدود.';
                 chip.textContent = 'مساحتك التعليمية';
                 enterLabel.textContent = 'ابدأ رحلتك';
@@ -8901,10 +8905,10 @@
             } else {
                 root.setAttribute('dir', 'ltr');
                 kicker.textContent = isReturning ? 'YOUR SPACE IS READY' : 'A NEW CHAPTER';
-                greeting.textContent = isReturning ? 'Welcome back,' : 'Welcome to NEXA,';
+                greeting.textContent = isReturning ? 'Welcome back,' : 'Welcome to NEXAZ,';
                 message.textContent = isReturning ? 'Your space is ready. Pick up where you left off and keep moving forward.' : 'Your space to learn, explore, and think beyond.';
                 chip.textContent = 'YOUR PERSONAL SPACE';
-                enterLabel.textContent = 'Explore NEXA';
+                enterLabel.textContent = 'Explore NEXAZ';
             }
 
             const photoSrc = profile.avatar || safeGet(localStore, PHOTO_KEY);
