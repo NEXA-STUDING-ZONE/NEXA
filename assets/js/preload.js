@@ -34,7 +34,6 @@
         rain: 'assets/audio/soft-rain.mp3',
         ocean: 'assets/audio/ocean-waves.mp3'
     };
-    const MEDIA = 'nexa-media';
     const P = window.NXPRE = {
         url: {},
         imgs: []
@@ -75,18 +74,10 @@
         next();
     };
     const fetchBlob = async src => {
-        let cache = null;
-        try {
-            cache = await caches.open(MEDIA);
-        } catch (e) {}
-        let res = cache && await cache.match(src);
-        if (!res) {
-            res = await fetch(src, {
-                priority: 'low'
-            });
-            if (!res.ok) throw new Error(src);
-            if (cache && !(navigator.serviceWorker && navigator.serviceWorker.controller)) cache.put(src, res.clone()).catch(() => {});
-        }
+        const res = await fetch(src, {
+            priority: 'low'
+        });
+        if (!res.ok) throw new Error(src);
         return res.blob();
     };
     const small = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent) || (navigator.deviceMemory && navigator.deviceMemory < 4);

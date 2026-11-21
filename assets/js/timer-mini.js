@@ -123,6 +123,7 @@
     stage.style.width = w + 'px';
     stage.style.height = h + 'px';
     fitInner();
+    requestAnimationFrame(() => requestAnimationFrame(fitInner));
   };
   const restoreGeometry = () => {
     let p = null;
@@ -198,6 +199,7 @@
     stage.classList.add('fx-mini-float');
     restoreGeometry();
     syncLabel();
+    requestAnimationFrame(() => requestAnimationFrame(fitInner));
   };
   const disengage = () => {
     expand();
