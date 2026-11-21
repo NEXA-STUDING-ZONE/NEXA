@@ -3079,6 +3079,11 @@
             })();
             Object.assign(AR, {
                 'Calculator': 'الآلة الحاسبة',
+                'Scientific Calculator': 'الآلة الحاسبة العلمية',
+                'Landscape view': 'عرض أفقي',
+                'Portrait view': 'عرض رأسي',
+                'Full screen': 'ملء الشاشة',
+                'Exit full screen': 'الخروج من ملء الشاشة',
                 'Solve, Calculate, Check': 'احسب وحلّ وتحقق',
                 'A full scientific calculator for your study sessions.': 'آلة حاسبة علمية كاملة لحصصك الدراسية.',
                 'Smart Board': 'السبورة الذكية',
